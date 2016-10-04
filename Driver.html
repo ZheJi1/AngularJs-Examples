@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Driver</title>
+</head>
+<body>
+<div ng-app="sample" ng-controller="driverController">
+    Enter your first name: <input type="text" ng-model="driver.firstName"><br>
+    <br>Enter your last name: <input type="text" ng-model="driver.lastName"><br>
+    <h2>Have a safe journey ahead {{driver.fullName()}}!</h2>
+</div>
+<script src="angular.min.js"></script>
+<script>
+    angular.module("sample", [])
+            .controller("driverController", function($scope){
+                $scope.driver={
+                    firstName:"Max",
+                    lastName:"Green",
+                    fullName: function(){
+                        var driverObject;
+                        driverObject=$scope.driver;
+                        return driverObject.firstName+" "+driverObject.lastName;
+                    }
+                };
+            });
+</script>
+</body>
+</html>

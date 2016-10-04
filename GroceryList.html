@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grocery List</title>
+</head>
+<body ng-app="sample">
+<div ng-controller="GroceryListController">
+    Add to list: <input type="text" ng-model="newitem" />
+    <button ng-click="addItem()">Add</button>
+    <p>Number of items: {{items.length}}</p>
+    <h2>Grocery Items:</h2>
+
+    <ul>
+        <li ng-repeat="item in items">{{item}}</li>
+    </ul>
+</div>
+<script src="angular.min.js"></script>
+<script>
+    angular.module("sample", [])
+            .controller("GroceryListController", function($scope){
+                $scope.items=["coffee"];
+                $scope.addItem= function(){
+                    $scope.items.push($scope.newitem);
+                    $scope.newitem=" ";
+                };
+            });
+</script>
+</body>
+</html>

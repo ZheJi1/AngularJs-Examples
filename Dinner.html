@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dinner</title>
+</head>
+<body ng-app="sample">
+  <div ng-controller="samplecontroller">
+      <h2>A conversation about {{samplemeal.title}}!</h2>
+      <p>What do you want to have for {{samplemeal.title}}?<input type="text" ng-model="foodname"></p>
+      <p>Ok, let's go out and eat <span ng-bind="foodname"></span>!</p>
+  </div>
+<script src="angular.min.js"></script>
+<script>
+    angular.module("sample",[])
+            .controller("samplecontroller", function($scope){
+            $scope.samplemeal ={};
+            $scope.samplemeal.title="Dinner";
+            });
+</script>
+</body>
+</html>
